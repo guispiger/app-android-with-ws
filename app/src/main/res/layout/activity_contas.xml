@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ContasActivity">
+
+    <fragment
+        android:name="com.example.cadastros_financas.CadastroContaFragment"
+        android:id="@+id/fragCadastroConta"
+        android:tag="fragCadastroConta"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="3"
+        android:layout_gravity="center"/>
+    <fragment
+        android:name="com.example.cadastros_financas.ListaContasFragment"
+        android:id="@+id/fragListaContas"
+        android:tag="fragListaContas"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="8"/>
+
+</LinearLayout>

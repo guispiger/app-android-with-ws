@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edDescricao"
+        android:paddingLeft="30sp"
+        android:text="@string/categoria"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0sp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/edId"
+            android:text="5"/>
+        <TextView
+            android:layout_width="0sp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:id="@+id/edMargem"
+            android:gravity="right"
+            android:text="@string/hintValorFinanceiro"
+            android:paddingRight="10sp"/>
+    </LinearLayout>
+</LinearLayout>

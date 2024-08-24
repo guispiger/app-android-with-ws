@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Finance control</string>
+    <string name="hello_blank_fragment">Hello</string>
+    <string name="voltar">Go Back</string>
+    <string name="adicionar">Add</string>
+    <string name="conta">Bill</string>
+    <string name="categoria">Category</string>
+    <string name="hintDateItens">14/05/2024</string>
+    <string name="hintValorFinanceiro">R$ 123,23</string>
+    <string name="BtnEditar">Edit</string>
+    <string name="BtnRemover">Remove</string>
+    <string name="TitleListaCategorias">"  Grouped Accounts"</string>
+    <string name="nome_da_categoria">Category Name</string>
+    <string name="descricao">Description</string>
+    <string name="valor">Cost</string>
+    <string name="selecionar_o_vencimento">Select Expiration Date</string>
+    <string name="ok">OK</string>
+    <string name="TitleCategoria">Category:</string>
+</resources>
