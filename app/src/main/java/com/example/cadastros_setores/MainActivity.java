@@ -76,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    //----------------------------------------------------------------
+    public void limpar(View v){
+        fragCadastroSetor.limparTela();
+        setorSelecionado = null;
+    }
 
     //----------------------------------------------------------------
     public void removerSetor(View v) {

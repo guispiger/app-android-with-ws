@@ -18,12 +18,25 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:hint="@string/margem"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="adicionar"
-        android:text="@string/adicionar"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="100sp"
+            android:onClick="adicionar"
+            android:text="@string/adicionar"/>
+
+        <Button
+            android:id="@+id/buttonLimpar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:onClick="limpar"
+            android:text="@string/limpar"/>
+    </LinearLayout>
 </LinearLayout>

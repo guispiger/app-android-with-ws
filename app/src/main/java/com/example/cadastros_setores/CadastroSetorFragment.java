@@ -19,6 +19,7 @@ public class CadastroSetorFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    //----------------------------------------------------------------
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,13 +30,14 @@ public class CadastroSetorFragment extends Fragment {
         return v;
     }
 
+    //----------------------------------------------------------------
     public Setor validarDados(){
         String descricao = edDescricao.getText().toString().trim();
         Double margem = null;
         try {
             margem = Double.parseDouble(edMargem.getText().toString());
         }catch (Exception e){
-            Toast.makeText(getActivity(), "Informe um núemro para margem válido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Informe um número para margem válido", Toast.LENGTH_SHORT).show();
         }
 
         if(descricao == null || descricao.isEmpty()){
@@ -44,14 +46,22 @@ public class CadastroSetorFragment extends Fragment {
         }
 
         if(margem == null || margem < 0){
-            Toast.makeText(getActivity(), "Informe uma margem superior a 0 para o setor", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Informe uma margem positiva (>=0) para o setor", Toast.LENGTH_SHORT).show();
             return null;
         }
-        edDescricao.setText("");
-        edMargem.setText("");
+
+        limparTela();
+
         return new Setor(descricao, margem);
     }
 
+    //----------------------------------------------------------------
+    public void limparTela(){
+        edDescricao.setText("");
+        edMargem.setText("");
+    }
+
+    //----------------------------------------------------------------
     public void ajustarEdicao(Setor s){
         edDescricao.setText(s.getDescricao());
         edMargem.setText(String.valueOf(s.getMargem()));

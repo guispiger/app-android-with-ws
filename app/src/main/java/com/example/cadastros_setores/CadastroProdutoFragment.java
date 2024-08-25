@@ -58,11 +58,15 @@ public class CadastroProdutoFragment extends Fragment {
             Toast.makeText(getActivity(), "É necessário informar todos os dados!", Toast.LENGTH_SHORT).show();
             return null;
         }
+
+        limparTela();
+        return new Produto(descricao, estoque, preco, setor);
+    }
+    //-----------------------------------------------------------------
+    public void limparTela(){
         edDescricao.setText("");
         edEstoque.setText("");
         edPreco.setText("");
-
-        return new Produto(descricao, estoque, preco, setor);
     }
 
     //-----------------------------------------------------------------

@@ -70,6 +70,12 @@ public class ProdutosActivity extends AppCompatActivity {
             }
         }
     }
+    //----------------------------------------------------------------
+    public void limpar(View v){
+        fragCadastroProduto.limparTela();
+        produtoEditando = null;
+    }
+
 
     //----------------------------------------------------------------
     public void removerProduto(View v) {

@@ -21,4 +21,5 @@
     <string name="txtPreco">Price</string>
     <string name="txtEstoque">Stock</string>
     <string name="recaregar">Reload</string>
+    <string name="limpar">Clear</string>
 </resources>
