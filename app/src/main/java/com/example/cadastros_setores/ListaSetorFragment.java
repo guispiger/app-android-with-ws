@@ -44,7 +44,8 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
                 Setor[] sets = (Setor[]) intent.getSerializableExtra("setores");
                 setores.clear(); // refaz a lista do adapter.
                 if (sets != null && sets.length > 0) {
-                    setores.addAll(Arrays.asList(sets));
+                    Arrays.stream(sets).sorted((s1, s2) -> (s1.getId() - s2.getId()))
+                                       .forEach(s -> setores.add(s));
                 }
                 adapter.notifyDataSetChanged();
             }

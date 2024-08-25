@@ -42,6 +42,7 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
                 if (prodts != null && prodts.length > 0) {
                     Arrays.stream(prodts).filter(p -> p.getSetor() != null)
                                          .filter(p -> p.getSetor().getId() == setor.getId())
+                                         .sorted((p1, p2) -> (p1.getId() - p2.getId()))
                                          .forEach(p -> produtos.add(p));
                 }
                 adapter.notifyDataSetChanged();
