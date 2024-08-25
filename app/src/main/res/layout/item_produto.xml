@@ -14,6 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_preco"
+            android:gravity="right"
+            android:text="@string/txtPreco"
+            android:paddingRight="10sp"/>
 
         <TextView
             android:layout_width="0sp"
@@ -23,6 +31,15 @@
             android:gravity="right"
             android:text="@string/hintPreço"
             android:paddingRight="10sp"/>
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_estoque"
+            android:gravity="right"
+            android:text="@string/txtEstoque"
+            android:paddingRight="0sp"/>
 
         <TextView
             android:layout_width="0sp"

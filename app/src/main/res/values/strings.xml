@@ -19,4 +19,6 @@
     <string name="margem">Margem</string>
     <string name="estoque">Estoque</string>
     <string name="hintEstoque">0.0</string>
+    <string name="txtPreco">Preço:</string>
+    <string name="txtEstoque">Estoque:</string>
 </resources>
