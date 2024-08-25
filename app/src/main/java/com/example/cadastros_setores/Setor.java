@@ -1,6 +1,7 @@
-package com.example.cadastros_financas;
+package com.example.cadastros_setores;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 public class Setor implements Serializable {

@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CadastroContaFragment">
+    tools:context=".CadastroProdutoFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nome_da_categoria"
-        android:id="@+id/edDescricaoCategoria"
+        android:text="@string/nome_do_setor"
+        android:id="@+id/edDescricaoSetor"
         android:textSize="20sp"
         android:gravity="center"/>
 
@@ -25,27 +25,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/edValor"
+            android:id="@+id/edPreco"
             android:layout_width="0sp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="@string/valor" />
+            android:hint="@string/preco" />
 
-        <TextView
-            android:id="@+id/txtVencimento"
+        <EditText
+            android:id="@+id/edEstoque"
             android:layout_width="0sp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="@string/selecionar_o_vencimento"
-            android:gravity="center"
-            android:onClick="selecionarVencimento"/>
+            android:inputType="numberDecimal"
+            android:hint="@string/estoque" />
     </LinearLayout>
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="cadastrarConta"
+        android:onClick="cadastrarProduto"
         android:text="@string/ok" />
 
 </LinearLayout>

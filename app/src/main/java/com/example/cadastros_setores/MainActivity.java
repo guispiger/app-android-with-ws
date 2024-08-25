@@ -1,4 +1,4 @@
-package com.example.cadastros_financas;
+package com.example.cadastros_setores;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
 
 import java.util.ArrayList;
 
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 setorSelecionado = setores.get(position);
-                Intent it = new Intent(getApplicationContext(), ContasActivity.class);
-                it.putExtra("categoria", setorSelecionado);
+                Intent it = new Intent(getApplicationContext(), ProdutosActivity.class);
+                it.putExtra("setor", setorSelecionado);
                 startActivityForResult(it, 123);
                 return false;
             }
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             Setor setor = fragCadastroSetor.validarDados();
             if (setor != null) {
                 if (setorSelecionado != null) {
-//                    categoria.setContas(categoriaSelecionada.getContas()); gravar os produtos aqui
                     this.confirmaEdit(setorSelecionado, setor);
                     Log.d("SETOR", "Alterado");
                 } else {
@@ -150,23 +150,21 @@ public class MainActivity extends AppCompatActivity {
     //----------------------------------------------------------------
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem){
-        if(menuItem.getItemId() == R.id.item_addConta){
+        if(menuItem.getItemId() == R.id.item_addSetor){
             setorSelecionado = fragListaSetor.getSetorSelecionado();
-            Toast.makeText(this, "Jujubinhas", Toast.LENGTH_SHORT).show();
-//            addConta(categoriaSelecionada);
+            addProduto(setorSelecionado);
         }
         return super.onOptionsItemSelected(menuItem);
     }
 
     //----------------------------------------------------------------
-//    Depois usar para add produtos
-    public void addConta(Categoria categoria){
-        if(categoria == null){
-            Toast.makeText(this, "Selecione uma categoria para adicionar uma conta", Toast.LENGTH_SHORT).show();
+    public void addProduto(Setor setor){
+        if(setor == null){
+            Toast.makeText(this, "Selecione um setor para adicionar uma conta", Toast.LENGTH_SHORT).show();
             return;
         }
-        Intent it = new Intent(this, ContasActivity.class);
-        it.putExtra("categoria", categoria);
+        Intent it = new Intent(this, ProdutosActivity.class);
+        it.putExtra("setor", setor);
         startActivityForResult(it, 123);
     }
 
@@ -175,12 +173,6 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requisicao, int resposta, Intent dados){
         super.onActivityResult(requisicao,resposta,dados);
         if(requisicao == 123 && resposta == RESULT_OK){
-            ArrayList<Conta> contas = (ArrayList<Conta>) dados.getSerializableExtra("contas");
-
-//            Categoria categoriaContas = new Categoria(setorSelecionado.getDescricao());
-//            categoriaContas.setContas(contas);
-//            fragListaCategoria.substituir(setorSelecionado, categoriaContas);
-
             setorSelecionado = null;
         }
     }

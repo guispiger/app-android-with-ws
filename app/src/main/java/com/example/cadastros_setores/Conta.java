@@ -1,4 +1,4 @@
-package com.example.cadastros_financas;
+package com.example.cadastros_setores;
 
 import java.io.Serializable;
 import java.util.Date;

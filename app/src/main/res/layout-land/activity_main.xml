@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
     <fragment
-        android:name="com.example.cadastros_financas.CadastroSetorFragment"
+        android:name="com.example.cadastros_setores.CadastroSetorFragment"
         android:id="@+id/fragCadastroSetor"
         android:tag="fragCadastroSetor"
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_weight="2"
         android:layout_gravity="center"/>
     <fragment
-        android:name="com.example.cadastros_financas.ListaSetorFragment"
+        android:name="com.example.cadastros_setores.ListaSetorFragment"
         android:id="@+id/fragListaSetor"
         android:tag="fragListaSetor"
         android:layout_width="match_parent"

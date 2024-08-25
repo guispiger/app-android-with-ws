@@ -1,20 +1,22 @@
 <resources>
-    <string name="app_name">Controle de Finanças</string>
+    <string name="app_name">Cadastro de Setores</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Olá</string>
     <string name="voltar">Voltar</string>
     <string name="adicionar">Adicionar</string>
-    <string name="conta">Conta</string>
-    <string name="categoria">Categoria</string>
-    <string name="hintDateItens">14/05/2024</string>
-    <string name="hintValorFinanceiro">R$ 123,23</string>
+    <string name="produto">Produto</string>
+    <string name="setor">Setor</string>
+    <string name="hintPreço">R$ 123,23</string>
     <string name="BtnEditar">Editar</string>
     <string name="BtnRemover">Remover</string>
-    <string name="TitleListaCategorias">Contas Agrupadas</string>
-    <string name="nome_da_categoria">Nome da Categoria</string>
+    <string name="TitleListaSetores">Setores</string>
+    <string name="nome_do_setor">Nome do Setor</string>
     <string name="descricao">Descrição</string>
-    <string name="valor">Valor</string>
+    <string name="preco">Preço</string>
     <string name="selecionar_o_vencimento">Selecionar o Vencimento</string>
     <string name="ok">OK</string>
-    <string name="TitleCategoria">Categoria:</string>
+    <string name="TitleSetor">Setor:</string>
+    <string name="margem">Margem</string>
+    <string name="estoque">Estoque</string>
+    <string name="hintEstoque">0.0</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.cadastros_financas;
+package com.example.cadastros_setores;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,7 +69,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = convertView;
             if (v == null) {
-                v = getLayoutInflater().inflate(R.layout.item_categoria, null);
+                v = getLayoutInflater().inflate(R.layout.item_setor, null);
             }
             Setor setor = setores.get(position);
             ((TextView) v.findViewById(R.id.edDescricao)).setText(setor.getDescricao());
@@ -88,7 +89,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_lista_categoria, container, false);
+        View v = inflater.inflate(R.layout.fragment_lista_setor, container, false);
         listaSetores = (ListView) v.findViewById(R.id.listaSetores);
         listaSetores.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listaSetores.setOnItemClickListener(this);
@@ -164,7 +165,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
             it.putExtra("setor", novo);
             getActivity().startService(it);
 
-//          lista do servidor
+//          chama lista do servidor
             it = new Intent(getActivity(), SetorService.class);
             it.setAction( SetorService.ACTION_LISTAR);
             getActivity().startService( it );

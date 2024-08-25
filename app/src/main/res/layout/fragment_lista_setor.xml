@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ListaContasFragment">
-
+    tools:context=".ListaSetorFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/TitleListaSetores"/>
     <ListView android:layout_weight="5"
         android:layout_height="0sp"
         android:layout_width="match_parent"
-        android:id="@+id/listaContas"/>
+        android:id="@+id/listaSetores"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,12 +23,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/BtnEditar"
-            android:onClick="editarConta"/>
+            android:onClick="editarSetor"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/BtnRemover"
-            android:onClick="removerConta"/>
+            android:onClick="removerSetor"/>
     </LinearLayout>
-
 </LinearLayout>

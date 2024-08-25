@@ -16,8 +16,8 @@
         android:id="@+id/edMargem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Margem"/>
+        android:inputType="numberDecimal"
+        android:hint="@string/margem"/>
 
     <Button
         android:id="@+id/button"

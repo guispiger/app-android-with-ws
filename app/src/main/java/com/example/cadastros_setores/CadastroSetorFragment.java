@@ -1,4 +1,4 @@
-package com.example.cadastros_financas;
+package com.example.cadastros_setores;
 
 import android.os.Bundle;
 
@@ -23,7 +23,7 @@ public class CadastroSetorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_cadastro_categoria, container, false);
+        View v = inflater.inflate(R.layout.fragment_cadastro_setor, container, false);
         edDescricao = (EditText) v.findViewById(R.id.edDescricao);
         edMargem = (EditText) v.findViewById(R.id.edMargem);
         return v;
@@ -31,7 +31,13 @@ public class CadastroSetorFragment extends Fragment {
 
     public Setor validarDados(){
         String descricao = edDescricao.getText().toString().trim();
-        Double margem = Double.parseDouble(edMargem.getText().toString());
+        Double margem = null;
+        try {
+            margem = Double.parseDouble(edMargem.getText().toString());
+        }catch (Exception e){
+            Toast.makeText(getActivity(), "Informe um núemro para margem válido", Toast.LENGTH_SHORT).show();
+        }
+
         if(descricao == null || descricao.isEmpty()){
             Toast.makeText(getActivity(), "Informe uma descrição para o setor", Toast.LENGTH_SHORT).show();
             return null;
