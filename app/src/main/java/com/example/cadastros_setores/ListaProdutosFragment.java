@@ -113,9 +113,7 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
         produtos.add(p);
 
 //        recarrega lista
-        it = new Intent(getActivity(), ProdutoService.class);
-        it.setAction( ProdutoService.ACTION_LISTAR );
-        getActivity().startService( it );
+        buscarProdutos();
 
         adapter.notifyDataSetChanged();
     }
@@ -165,9 +163,8 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
             getActivity().startService(it);
 
 //          chama lista do servidor
-            it = new Intent(getActivity(), ProdutoService.class);
-            it.setAction( ProdutoService.ACTION_LISTAR);
-            getActivity().startService( it );
+            buscarProdutos();
+
             adapter.notifyDataSetChanged();
         }
     }
@@ -180,9 +177,7 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
             it.putExtra("produto", produto);
             getActivity().startService(it);
 
-            it = new Intent(getActivity(), ProdutoService.class);
-            it.setAction( ProdutoService.ACTION_LISTAR);
-            getActivity().startService( it );
+            buscarProdutos();
 
             produtos.remove(produto);
             adapter.notifyDataSetChanged();

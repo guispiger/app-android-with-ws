@@ -20,4 +20,5 @@
     <string name="hintEstoque">0.0</string>
     <string name="txtPreco">Price</string>
     <string name="txtEstoque">Stock</string>
+    <string name="recaregar">Reload</string>
 </resources>

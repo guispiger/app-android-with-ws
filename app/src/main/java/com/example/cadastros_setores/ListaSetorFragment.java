@@ -12,6 +12,7 @@ import android.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -139,9 +140,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
         setores.add(s);
 
 //        recarrega lista
-        it = new Intent(getActivity(), SetorService.class);
-        it.setAction( SetorService.ACTION_LISTAR );
-        getActivity().startService( it );
+        buscarSetores();
 
         adapter.notifyDataSetChanged();
     }
@@ -187,9 +186,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
             getActivity().startService(it);
 
 //          chama lista do servidor
-            it = new Intent(getActivity(), SetorService.class);
-            it.setAction( SetorService.ACTION_LISTAR);
-            getActivity().startService( it );
+            buscarSetores();
 
             adapter.notifyDataSetChanged();
         }
@@ -221,9 +218,7 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
             getActivity().startService(it);
 
             //recarregar lista do servidor
-            it = new Intent(getActivity(), SetorService.class);
-            it.setAction( SetorService.ACTION_LISTAR);
-            getActivity().startService( it );
+            buscarSetores();
 
             setores.remove(setor);
             adapter.notifyDataSetChanged();

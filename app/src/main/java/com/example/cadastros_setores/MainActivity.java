@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             }
             resultado = fragListaSetor.remover(setor);
             if (resultado != null) {
-//                Toast.makeText(this, "Erro inesperado ao remover setor: " + resultado, Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder bld = new AlertDialog.Builder(MainActivity.this);
                 bld.setTitle("ATENÇÂO!");
                 bld.setMessage(resultado);
@@ -160,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
         if(menuItem.getItemId() == R.id.item_addSetor){
             setorSelecionado = fragListaSetor.getSetorSelecionado();
             addProduto(setorSelecionado);
+        } else if(menuItem.getItemId() == R.id.item_reloadSetor){
+            //recarregar lista do servidor
+            fragListaSetor.buscarSetores();
         }
         return super.onOptionsItemSelected(menuItem);
     }

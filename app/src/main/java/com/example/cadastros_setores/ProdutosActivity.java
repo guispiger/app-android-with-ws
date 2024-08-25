@@ -146,6 +146,9 @@ public class ProdutosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         if(menuItem.getItemId() == R.id.item_voltar){
             finish();
+        } else if(menuItem.getItemId() == R.id.item_reloadProdutos){
+            //recarregar lista do servidor
+            fragListaProduto.buscarProdutos();
         }
         return super.onOptionsItemSelected(menuItem);
     }
