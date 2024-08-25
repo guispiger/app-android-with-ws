@@ -40,7 +40,8 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
                 Produto[] prodts = (Produto[]) intent.getSerializableExtra("produtos");
                 produtos.clear(); // refaz a lista do adapter.
                 if (prodts != null && prodts.length > 0) {
-                    Arrays.stream(prodts).filter(p -> p.getSetor().getId() == setor.getId())
+                    Arrays.stream(prodts).filter(p -> p.getSetor() != null)
+                                         .filter(p -> p.getSetor().getId() == setor.getId())
                                          .forEach(p -> produtos.add(p));
                 }
                 adapter.notifyDataSetChanged();
@@ -190,10 +191,5 @@ public class ListaProdutosFragment extends Fragment implements AdapterView.OnIte
             Log.d("LISTA-PRODUTO", e.getMessage());
             return false;
         }
-    }
-
-    //-----------------------------------------------------------------
-    public ArrayList<Produto> getProdutos(){
-        return produtos;
     }
 }
