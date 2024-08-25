@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Cadastro de Setores</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Olá</string>
     <string name="voltar">Voltar</string>
     <string name="adicionar">Adicionar</string>
@@ -13,7 +12,6 @@
     <string name="nome_do_setor">Nome do Setor</string>
     <string name="descricao">Descrição</string>
     <string name="preco">Preço</string>
-    <string name="selecionar_o_vencimento">Selecionar o Vencimento</string>
     <string name="ok">OK</string>
     <string name="TitleSetor">Setor:</string>
     <string name="margem">Margem</string>

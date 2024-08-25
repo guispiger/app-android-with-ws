@@ -13,7 +13,6 @@
     <string name="nome_do_setor">Sector Name</string>
     <string name="descricao">Description</string>
     <string name="preco">Cost</string>
-    <string name="selecionar_o_vencimento">Select Expiration Date</string>
     <string name="ok">OK</string>
     <string name="TitleSetor">Sector:</string>
     <string name="margem">Margin</string>
