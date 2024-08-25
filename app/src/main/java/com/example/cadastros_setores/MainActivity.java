@@ -81,12 +81,19 @@ public class MainActivity extends AppCompatActivity {
     public void removerSetor(View v) {
         if (fragListaSetor != null) {
             Setor setor = fragListaSetor.getSetorSelecionado();
+            String resultado = null;
             if (setor == null) {
                 Toast.makeText(this, "Selecione o setor que deseja remover", Toast.LENGTH_SHORT).show();
-            } else {
-                if (!fragListaSetor.remover(setor)) {
-                    Toast.makeText(this, "Erro inesperado ao remover setor, verificar Logs!", Toast.LENGTH_SHORT).show();
-                }
+                return;
+            }
+            resultado = fragListaSetor.remover(setor);
+            if (resultado != null) {
+//                Toast.makeText(this, "Erro inesperado ao remover setor: " + resultado, Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder bld = new AlertDialog.Builder(MainActivity.this);
+                bld.setTitle("ATENÇÂO!");
+                bld.setMessage(resultado);
+                bld.setPositiveButton("OK", null);
+                bld.show();
             }
         }
     }
@@ -160,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     //----------------------------------------------------------------
     public void addProduto(Setor setor){
         if(setor == null){
-            Toast.makeText(this, "Selecione um setor para adicionar uma conta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Selecione um setor para adicionar uma produto", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent it = new Intent(this, ProdutosActivity.class);

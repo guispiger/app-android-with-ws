@@ -74,7 +74,7 @@ public class ProdutoService extends IntentService {
                 Log.d("LISTAR-produtos", "200");
                 BufferedReader ent = new BufferedReader(
                         new InputStreamReader(con.getInputStream()));
-                StringBuilder bld = new StringBuilder(100000000);
+                StringBuilder bld = new StringBuilder(100000);
                 String linha;
                 do {
                     linha = ent.readLine();

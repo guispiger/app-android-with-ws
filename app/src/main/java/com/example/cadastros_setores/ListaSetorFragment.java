@@ -33,6 +33,8 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
     CategoriaAdapter adapter;
     int selectedPosition = -1;
 
+    ArrayList<Produto> produtos;
+
     //-----------------------------------------------------------------
     class SetorServiceObserver extends BroadcastReceiver {
         @Override
@@ -49,13 +51,32 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
     }
 
     //-----------------------------------------------------------------
+    class ProdutoServiceObserver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(ProdutoService.RESULTADO_LISTA_PRODUTOS)) {
+                Produto[] prodts = (Produto[]) intent.getSerializableExtra("produtos");
+                produtos = new ArrayList<>();
+                if (prodts != null && prodts.length > 0) {
+                    Arrays.stream(prodts).filter(p -> p.getSetor() != null)
+                            .forEach(p -> produtos.add(p));
+                }
+            }
+        }
+    }
+
+    //-----------------------------------------------------------------
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().registerReceiver(new SetorServiceObserver(),
                 new IntentFilter(SetorService.RESULTADO_LISTA_SETORES), Context.RECEIVER_EXPORTED);
 
+        getActivity().registerReceiver(new ProdutoServiceObserver(),
+                new IntentFilter(ProdutoService.RESULTADO_LISTA_PRODUTOS), Context.RECEIVER_EXPORTED);
+
         buscarSetores();
+        buscarProdutos();
     }
 
     //-----------------------------------------------------------------
@@ -72,9 +93,9 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
                 v = getLayoutInflater().inflate(R.layout.item_setor, null);
             }
             Setor setor = setores.get(position);
-            ((TextView) v.findViewById(R.id.edDescricao)).setText(setor.getDescricao());
-            ((TextView) v.findViewById(R.id.edMargem)).setText(Double.toString(setor.getMargem()));
             ((TextView) v.findViewById(R.id.edId)).setText(String.valueOf(setor.getId()));
+            ((TextView) v.findViewById(R.id.edDescricao)).setText(setor.getDescricao());
+            ((TextView) v.findViewById(R.id.edMargem)).setText("$" + Double.toString(setor.getMargem()));
             if (position == selectedPosition) {
                 v.setBackgroundColor( Color.LTGRAY);
             } else {
@@ -174,23 +195,48 @@ public class ListaSetorFragment extends Fragment implements AdapterView.OnItemCl
         }
     }
     //-----------------------------------------------------------------
-    public boolean remover(Setor setor) {
+    public String remover(Setor setor) {
+        String result = null;
         try {
+            //Verificar se o setor possui produtos
+            if(produtos != null){
+                for (Produto p : produtos) {
+                    if (p.getSetor() != null &&
+                        p.getSetor().getId() == setor.getId()) {
+                        result = "Não é possível remover o setor " + setor.getDescricao() +
+                                " pois ele possui produtos associados, " +
+                                "remova primeiro os produtos!";
+                        break;
+                    }
+                }
+                if(result != null){
+                    return result;
+                }
+            }
+
+            //deletar
             Intent it = new Intent(getActivity(), SetorService.class);
             it.setAction( SetorService.ACTION_DELETAR);
             it.putExtra("setor", setor);
             getActivity().startService(it);
 
+            //recarregar lista do servidor
             it = new Intent(getActivity(), SetorService.class);
             it.setAction( SetorService.ACTION_LISTAR);
             getActivity().startService( it );
 
             setores.remove(setor);
             adapter.notifyDataSetChanged();
-            return true;
+            return result;
         }catch (Exception e){
             Log.d("LISTA-SETOR", e.getMessage());
-            return false;
+            return e.getMessage();
         }
+    }
+
+    public void buscarProdutos(){
+        Intent it = new Intent(getActivity(), ProdutoService.class);
+        it.setAction( ProdutoService.ACTION_LISTAR);
+        getActivity().startService( it );
     }
 }
